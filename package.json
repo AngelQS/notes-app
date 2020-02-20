@@ -1,0 +1,42 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "A simple app to save notes.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "notes",
+    "nodejs",
+    "npm",
+    "express",
+    "mongodb",
+    "digitalocean",
+    "passport",
+    "ecmascript6",
+    "ec6",
+    "js",
+    "css",
+    "nunjucks"
+  ],
+  "author": "Angel Quiroz Soriano",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.2",
+    "npm-check-updates": "^4.0.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.1",
+    "nunjucks": "^3.2.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}
