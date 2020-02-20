@@ -4,6 +4,7 @@ const path = require('path');
 // Third
 const express = require('express');
 const nunjucks = require('nunjucks');
+const morgan = require('morgan');
 
 // INITIALIZATIONS
 const app = express();
@@ -23,13 +24,13 @@ tipo de metodo, tratara de convertir esos datos en un objeto JSON para poder man
 en codigo.
 */
 app.use(express.urlencoded({ extended: false }));
+app.use(morgan('dev'));
 
 // GLOBAL VARIABLES
 
 // ROUTES
-app.get('/', (req, res) => {
-  res.render('index');
-});
+app.use(require('../routes/index.routes'));
+app.use(require('../routes/notes.routes'));
 
 // STATIC FILES
 app.set('static files', path.join(__dirname, '../', 'public'));
