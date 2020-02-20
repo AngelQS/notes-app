@@ -9,12 +9,12 @@ const nunjucks = require('nunjucks');
 const app = express();
 
 // SETTINGS
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname + '/../' + 'views'));
-app.set('view engine', '.njk');
+app.set('port', process.env.PORT || 4000);
+app.set('views', path.join(__dirname, '../', 'views'));
 nunjucks.configure(app.get('views'), {
   express: app,
 });
+app.set('view engine', '.njk');
 
 // MIDDLEWARES
 /*
@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
 });
 
 // STATIC FILES
-app.use('static files', express.static(path.join(__dirname + 'public')));
+app.set('static files', path.join(__dirname, '../', 'public'));
+app.use(express.static(app.get('static files')));
 
 module.exports = app;
