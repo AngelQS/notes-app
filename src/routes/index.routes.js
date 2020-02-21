@@ -2,10 +2,7 @@
 const { Router } = require('express');
 
 // Local
-const {
-  renderIndex,
-  renderAbout,
-} = require('../controllers/index.controllers');
+const { renderIndex, renderAbout } = require('../controllers/index.controller');
 
 // Initialization
 const router = Router();

@@ -1,0 +1,3 @@
+nunjucksHelpers = {};
+
+module.exports = nunjucksHelpers;

@@ -9,7 +9,7 @@ const {
   renderEditForm,
   updateNote,
   deleteNote,
-} = require('../controllers/notes.controllers');
+} = require('../controllers/notes.controller');
 
 // Initialization
 const router = Router();
