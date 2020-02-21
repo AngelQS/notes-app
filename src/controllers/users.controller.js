@@ -1,5 +1,6 @@
 // Local
 const User = require('../models/User');
+const passport = require('passport');
 
 const usersCtrl = {};
 
@@ -37,12 +38,17 @@ usersCtrl.renderSignInForm = (req, res) => {
   res.render('users/signin');
 };
 
-usersCtrl.signIn = (req, res) => {
-  res.send('SignIn');
-};
+// passport.authenticate() esta basado en la funcion LocalStrategy de config/passport.js
+usersCtrl.signIn = passport.authenticate('local', {
+  failureRedirect: '/users/signin',
+  successRedirect: '/notes',
+  failureFlash: true,
+});
 
 usersCtrl.logOut = (req, res) => {
-  res.send('LogOut');
+  req.logout();
+  req.flash('success_msg', 'You are logged out.');
+  res.redirect('/users/signin');
 };
 
 module.exports = usersCtrl;

@@ -14,29 +14,35 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Notes
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/notes">
-              <i class="fa fa-sticky-note-o"></i>
-              All Notes</a >
-            <a class="dropdown-item" href="/notes/add">
-              <i class="fa fa-plus"></i>
-              Add A Note</a >
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <i class="fa fa-sign-out"></i>
-              Logout</a >
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users/signin">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users/signup">Register</a>
-        </li>
+        {% if user %}
+          <li class="nav-item active">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{user.name}}</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Notes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/notes">
+                <i class="fa fa-sticky-note-o"></i>
+                All Notes</a >
+              <a class="dropdown-item" href="/notes/add">
+                <i class="fa fa-plus"></i>
+                Add A Note</a >
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/users/logout">
+                <i class="fa fa-sign-out"></i>
+                Logout</a >
+            </div>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/users/signin">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/signup">Register</a>
+          </li>
+        {% endif %}
       </ul>
     </div>
   </div>
