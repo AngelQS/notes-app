@@ -13,7 +13,7 @@ const session = require('express-session');
 const app = express();
 
 // SETTINGS
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, '../', 'views'));
 nunjucks.configure(app.get('views'), {
   express: app,
@@ -42,6 +42,7 @@ app.use(
 // GLOBAL VARIABLES
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
   next();
 });
 
